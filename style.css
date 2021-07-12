@@ -1,0 +1,258 @@
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+Bright orange: hsl(31, 77%, 52%)
+Dark cyan: hsl(184, 100%, 22%)
+Very dark cyan: hsl(179, 100%, 13%)
+
+### Neutral
+
+Transparent white (paragraphs): hsla(0, 0%, 100%, 0.75)
+Very light gray (background, headings, buttons): hsl(0, 0%, 95%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 15px
+
+### Font
+
+- Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400
+
+- Family: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
+- Weights: 700
+*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&family=Lexend+Deca&display=swap');
+
+
+:root {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+
+    --BrightOrange: hsl(31, 77%, 52%);
+    --DarkCyan: hsl(184, 100%, 22%);
+    --VeryDarkCyan: hsl(179, 100%, 13%);
+
+    --TransparentWhite: hsla(0, 0%, 100%, 0.75);            /* (paragraphs) */
+    --VeryLightGray: hsl(0, 0%, 95%);                       /* (background, headings, buttons) */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: var(--VeryLightGray);
+}
+
+h2 {
+    color: var(--VeryLightGray);
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 2.1rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--TransparentWhite);
+}
+
+a {
+    transition: color ease .3s,
+                background ease .5s,
+                box-shadow ease .5s;
+    -webkit-transition: color ease .3s,
+                        background ease .5s,
+                        box-shadow ease .5s;
+}
+
+
+.wrapper {
+    margin: 6rem auto;
+    border-radius: .5rem;
+    overflow: hidden;
+    width: 87%;
+    max-width: 326px;
+    display: grid;
+    grid-template-columns: repeat(1fr, 1fr);
+    grid-auto-rows: minmax(500px, auto);
+}
+
+
+.card {
+    padding: 3rem;
+    padding-top: 130px;
+    position: relative;
+    transition: transform ease .5s;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    left: 3rem;
+    top: 3.33rem;
+    width: 64px;
+    height: 40px;
+
+    animation: fadein ease-out 1s;
+    -webkit-animation: fadein ease-out 1s;
+}
+
+.card:hover {
+    transform:scale(1.1);
+}
+
+.card-body {
+    height: 280px;
+}
+
+.card .button {
+    background: var(--VeryLightGray);
+    padding: 17px 32px;
+    border-radius: 25px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card .button:hover,
+.card .button:active {
+    background: none;
+    color: var(--VeryLightGray);
+    box-shadow: inset 0 0 0 2px var(--VeryLightGray);
+}
+
+
+.one {
+    background: var(--BrightOrange);
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.one::after {
+    background: url('images/icon-sedans.svg');
+}
+
+.one a {
+    color: var(--BrightOrange);
+}
+
+.two {
+    background: var(--DarkCyan);
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.two::after {
+    background: url('images/icon-suvs.svg');
+}
+
+.two a {
+    color: var(--DarkCyan);
+}
+
+.three {
+    background: var(--VeryDarkCyan);
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.three::after {
+    background: url('images/icon-luxury.svg');
+}
+
+.three a {
+    color: var(--VeryDarkCyan);
+}
+
+
+.attribution {
+    margin: 0 auto;
+    text-align: center;
+    width: 87%;
+}
+
+.attribution p {
+    color: #0005;
+}
+
+.attribution a {
+    color: var(--DarkCyan);
+    text-decoration: none;
+}
+
+.attribution a:hover {
+    color: var(--BrightOrange);
+}
+
+
+@media only screen and (min-width: 760px) {
+    .wrapper {
+        max-width: 652px;
+        grid-template-rows: repeat(2fr, 1fr);
+    }
+
+    .two {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .three {
+        grid-row: 2;
+    }
+}
+
+@media only screen and (min-width: 1145px) {
+    .wrapper {
+        max-width: 978px;
+        grid-template-rows: repeat(3fr, 1fr);
+    }
+
+    .three {
+        grid-column: 3;
+        grid-row: 1;
+    }
+}
+
+
+@keyframes fadein {
+    from {
+        left: 4rem;
+        opacity: 0;
+    }
+
+    to {
+        left: 3rem;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        left: 4rem;
+        opacity: 0;
+    }
+
+    to {
+        left: 3rem;
+        opacity: 1;
+    }
+}
